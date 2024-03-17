@@ -23,7 +23,7 @@ This Flask web application serves as a template for creating web applications wi
 1.  **Clone the repository:**
     
     
-    `git clone https://github.com/yourusername/your-repository.git` 
+    `git clone https://github.com/nachiketgalande1609/Flask-Login-Template.git` 
     
 2.  **Install dependencies:**
     
