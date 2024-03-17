@@ -1,0 +1,19 @@
+.login-card {
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.signup-card {
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#login-submit-btn {
+    width: 100%;
+}
+
+#signup-submit-btn {
+    width: 100%;
+}

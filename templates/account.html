@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to the Account Page</h1>
+    {% if current_user.is_authenticated %}
+        <p>Hello, {{ current_user.username }}!</p>
+    {% else %}
+        <p>Welcome, guest. Please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('signup') }}">signup</a>.</p>
+    {% endif %}
+{% endblock %}
