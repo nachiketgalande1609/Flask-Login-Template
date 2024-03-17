@@ -7,7 +7,6 @@ This Flask web application serves as a template for creating web applications wi
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Folder Structure](#folder-structure)
 
 ## Features
 
@@ -23,13 +22,11 @@ This Flask web application serves as a template for creating web applications wi
 
 1.  **Clone the repository:**
     
-    bashCopy code
     
     `git clone https://github.com/yourusername/your-repository.git` 
     
 2.  **Install dependencies:**
     
-    Copy code
     
     `pip install -r requirements.txt` 
     
@@ -41,9 +38,7 @@ This Flask web application serves as a template for creating web applications wi
 ## Usage
 
 1.  **Run the Flask app:**
-    
-    Copy code
-    
+        
     `python app.py` 
     
     The app will be running at `http://localhost:5000`.
@@ -55,31 +50,3 @@ This Flask web application serves as a template for creating web applications wi
     -   `/login`: User login page
     -   `/account`: Account page (accessible only to logged-in users)
     -   `/logout`: Log out the current user
-
-
-## Folder Structure
-
-├── app.py
-├── config.py
-├── README.md
-├── requirements.txt
-├── models
-│   ├── models.py
-│   ├── \_\_init\_\_.py
-│   └── \_\_pycache\_\_
-├── static
-│   ├── css
-│   │   ├── bootstrap.min.css
-│   │   └── style.css
-│   └── js
-│       ├── bootstrap.min.js
-│       ├── jquery-3.7.1.min.js
-│       ├── popper.min.js
-│       └── script.js
-└── templates
-    ├── account.html
-    ├── base.html
-    ├── footer.html
-    ├── home.html
-    ├── login.html
-    └── signup.html
