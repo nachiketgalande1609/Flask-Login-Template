@@ -1,3 +1,7 @@
+# Author: Nachiket Galande
+# Date: 17/03/2024
+# Description: This Python script implements a Flask template for user authentication using MongoDB and Flask-Login.
+
 # Import necessary modules
 from bson import ObjectId
 from flask import Flask, render_template, request, redirect, url_for, flash
@@ -22,10 +26,11 @@ db = client['my_app']
 
 # Define a User class for Flask-Login
 class User(UserMixin):
-    def __init__(self, user_id, email=None, username=None):
+    def __init__(self, user_id, email=None, username=None, password=None):
         self.id = user_id
         self.email = email
         self.username = username
+        self.password = password
 
     def get_id(self):
         return str(self.id)
@@ -72,7 +77,7 @@ def signup():
         password = hashed_password.decode('utf-8')
 
         # Create a new user model object
-        new_user = User(email, username, password)
+        new_user = User(user_id=None, email=email, username=username, password=password)  # Ensure correct parameter order
 
         # Insert user data into MongoDB
         db.users.insert_one({
@@ -82,10 +87,10 @@ def signup():
         })
 
         # Since User model doesn't provide an ID, you might need to retrieve it from MongoDB
-        user = db.users.find_one({'username': new_user.username})
+        user = db.users.find_one({'email': new_user.email})  # Query by email
 
         # Create a new user object using the retrieved user ID
-        user_obj = User(user['_id'], username=new_user.username)
+        user_obj = User(user_id=user['_id'], email=user['email'], username=user['username'], password=user['password'])
 
         login_user(user_obj)
 
@@ -93,6 +98,7 @@ def signup():
         return redirect(url_for('home'))
     else:
         return render_template("signup.html")
+
 
 # Route for user login
 @app.route('/login', methods=['GET','POST'])
